@@ -763,3 +763,101 @@
     font-size: 1.9rem;
   }
 }
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  :global(html),
+  :global(body) {
+    width: 100%;
+    min-height: 100%;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+
+  .musicButton {
+    display: none !important;
+  }
+
+  .invitationShell {
+    width: 100% !important;
+    max-width: 794px !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+      url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2387aebb' stroke-opacity='.12' stroke-width='1'%3E%3Cpath d='M20 80c30-44 90-44 120 0M20 90c30 44 90 44 120 0'/%3E%3Cpath d='M80 20c-44 30-44 90 0 120M90 20c44 30 44 90 0 120'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+
+  .heroSection,
+  .section {
+    padding: 18px 28px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .heroCard,
+  .phraseCard,
+  .familyCard,
+  .whereCard {
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .heroCard {
+    padding: 34px 30px 32px !important;
+    border-radius: 28px !important;
+  }
+
+  .heroTitle {
+    font-size: 42px !important;
+  }
+
+  .heroName {
+    font-size: 64px !important;
+  }
+
+  .heroDate {
+    font-size: 28px !important;
+  }
+
+  .countdownTitleHero {
+    font-size: 38px !important;
+  }
+
+  .timeBox strong {
+    font-size: 24px !important;
+  }
+
+  .timeBox span {
+    font-size: 9px !important;
+  }
+
+  .verse {
+    font-size: 34px !important;
+  }
+
+  .namesGroup h2,
+  .whereCard h2 {
+    font-size: 34px !important;
+  }
+
+  .namesGroup p {
+    font-size: 24px !important;
+  }
+
+  .footer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
