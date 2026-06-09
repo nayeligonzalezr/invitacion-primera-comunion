@@ -28,6 +28,10 @@ export default function HeroSection({ info }) {
         <p className={styles.heroLabel}>Te invitamos a celebrar</p>
         <h1 className={styles.heroTitle}>{info.eventType}</h1>
 
+        {info.secondaryEvent && (
+          <p className={styles.secondaryEventTag}>{info.secondaryEvent}</p>
+        )}
+
         <div className={styles.nameWrapper}>
           <p className={styles.heroName}>{info.name}</p>
         </div>
@@ -38,8 +42,27 @@ export default function HeroSection({ info }) {
           <span></span>
         </div>
 
-        <p className={styles.heroDate}>{info.dateText}</p>
-        <p className={styles.heroTime}>{info.timeText}</p>
+        <div className={styles.eventDatesWrap}>
+          <div className={styles.eventDateBlock}>
+            <p className={styles.eventDateLabel}>
+              {info.firstSacrament.title}
+            </p>
+            <p className={styles.eventDateText}>
+              {info.firstSacrament.dateText}
+            </p>
+          </div>
+
+          <div className={styles.eventDateDivider}></div>
+
+          <div className={styles.eventDateBlock}>
+            <p className={styles.eventDateLabel}>{info.confirmation.title}</p>
+            <p className={styles.eventDateText}>
+              {info.confirmation.dateText}
+            </p>
+          </div>
+
+          <p className={styles.eventTimeText}>{info.firstSacrament.timeText}</p>
+        </div>
 
         <div className={styles.heroCountdownWrap}>
           <div className={styles.decorativeLineSmall}>

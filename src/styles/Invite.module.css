@@ -658,6 +658,19 @@
 ========================= */
 
 @media (max-width: 520px) {
+  .secondaryEventTag {
+    font-size: 0.84rem;
+    padding: 9px 18px;
+    letter-spacing: 2px;
+  }
+
+  .eventDateText {
+    font-size: clamp(1.12rem, 5vw, 1.38rem);
+  }
+
+  .eventTimeText {
+    font-size: 0.88rem;
+  }
   .musicButton {
     right: 16px;
     top: 16px;
@@ -764,100 +777,136 @@
   }
 }
 
-@media print {
-  @page {
-    size: A4 portrait;
-    margin: 0;
-  }
+.secondaryEventTag {
+  margin: 6px 0 14px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7e58c2, #5c8d68);
+  box-shadow: 0 10px 22px rgba(104, 120, 146, 0.2);
+}
 
-  :global(html),
-  :global(body) {
-    width: 100%;
-    min-height: 100%;
-    background: #ffffff !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+.sacramentCard {
+  margin-top: 18px;
+  padding: 18px 16px;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 251, 248, 0.95),
+    rgba(255, 250, 243, 0.95)
+  );
+  border: 1px solid rgba(188, 159, 87, 0.26);
+}
 
-  .page {
-    background: #ffffff !important;
-    padding: 0 !important;
-  }
+.sacramentEyebrow {
+  margin: 0;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6f8c99;
+}
 
-  .musicButton {
-    display: none !important;
-  }
+.sacramentHeading {
+  margin: 8px 0 14px;
+  font-family: "Elegante", Georgia, serif;
+  font-size: clamp(1.8rem, 7vw, 2.5rem);
+  line-height: 1.05;
+  color: #2f6d69;
+  font-weight: 700;
+}
 
-  .invitationShell {
-    width: 100% !important;
-    max-width: 794px !important;
-    margin: 0 auto !important;
-    box-shadow: none !important;
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
-      url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2387aebb' stroke-opacity='.12' stroke-width='1'%3E%3Cpath d='M20 80c30-44 90-44 120 0M20 90c30 44 90 44 120 0'/%3E%3Cpath d='M80 20c-44 30-44 90 0 120M90 20c44 30 44 90 0 120'/%3E%3C/g%3E%3C/svg%3E") !important;
-  }
+.sacramentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
 
-  .heroSection,
-  .section {
-    padding: 18px 28px !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
+.sacramentBlock {
+  padding: 14px 12px;
+  border-radius: 16px;
+  background: rgba(239, 247, 244, 0.88);
+  border: 1px solid rgba(126, 174, 194, 0.2);
+}
 
-  .heroCard,
-  .phraseCard,
-  .familyCard,
-  .whereCard {
-    box-shadow: none !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
+.sacramentBlock strong {
+  display: block;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.75rem;
+  color: #2f6d69;
+  font-weight: 700;
+}
 
-  .heroCard {
-    padding: 34px 30px 32px !important;
-    border-radius: 28px !important;
-  }
+.sacramentBlock p {
+  margin: 8px 0 0;
+  font-family: "Femme", serif;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #556973;
+}
 
-  .heroTitle {
-    font-size: 42px !important;
-  }
+.sacramentNote {
+  margin: 14px 0 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #60737c;
+}
 
-  .heroName {
-    font-size: 64px !important;
-  }
+.eventDatesWrap {
+  width: 100%;
+  margin-top: 6px;
+}
 
-  .heroDate {
-    font-size: 28px !important;
-  }
+.eventDateBlock {
+  padding: 10px 12px;
+}
 
-  .countdownTitleHero {
-    font-size: 38px !important;
-  }
+.eventDateLabel {
+  margin: 0 0 6px;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2f6d69;
+}
 
-  .timeBox strong {
-    font-size: 24px !important;
-  }
+.eventDateText {
+  margin: 0;
+  font-family: "Femme", serif;
+  color: #5c6b72;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 800;
+}
 
-  .timeBox span {
-    font-size: 9px !important;
-  }
+.eventDateDivider {
+  width: 72%;
+  height: 1px;
+  margin: 2px auto;
+  background: linear-gradient(90deg, transparent, #d8bd79, transparent);
+}
 
-  .verse {
-    font-size: 34px !important;
-  }
+.eventTimeText {
+  margin: 10px 0 0;
+  font-family: "BasicTitle", sans-serif;
+  color: #4f7f89;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
 
-  .namesGroup h2,
-  .whereCard h2 {
-    font-size: 34px !important;
-  }
-
-  .namesGroup p {
-    font-size: 24px !important;
-  }
-
-  .footer {
-    break-inside: avoid;
-    page-break-inside: avoid;
+@media (min-width: 390px) {
+  .sacramentGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

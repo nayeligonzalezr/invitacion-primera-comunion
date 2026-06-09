@@ -68,10 +68,17 @@ export default function Invite() {
             <div className={styles.familyDivider}>✝</div>
 
             <div className={styles.namesGroup}>
-              <h2>{invitationInfo.godparents.title}</h2>
-              {invitationInfo.godparents.names.map((name) => (
+              <h2>{invitationInfo.communionGodparents.title}</h2>
+              {invitationInfo.communionGodparents.names.map((name) => (
                 <p key={name}>{name}</p>
               ))}
+            </div>
+
+            <div className={styles.familyDivider}>✦</div>
+
+            <div className={styles.namesGroup}>
+              <h2>{invitationInfo.confirmation.sponsorTitle}</h2>
+              <p>{invitationInfo.confirmation.sponsor}</p>
             </div>
           </div>
         </section>
@@ -80,7 +87,7 @@ export default function Invite() {
 
         <footer className={styles.footer}>
           <p>Gracias por acompañarnos en este día tan especial</p>
-          <p>Te esperamos</p>
+          <p>Te Esperamos!</p>
         </footer>
       </div>
     </main>

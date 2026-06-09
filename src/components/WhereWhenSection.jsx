@@ -5,6 +5,8 @@ import styles from "../styles/Invite.module.css";
 export default function WhereWhenSection({ info }) {
   const hasMap = Boolean(info.party.mapUrl);
 
+  const eventTime = info.firstSacrament?.timeText || info.timeText;
+
   return (
     <section className={styles.section}>
       <div className={styles.whereCard}>
@@ -22,9 +24,10 @@ export default function WhereWhenSection({ info }) {
           <span className={styles.infoIcon}>
             <FaRegClock />
           </span>
+
           <div>
             <strong>Hora</strong>
-            <p>{info.timeText}</p>
+            <p>{eventTime}</p>
           </div>
         </div>
 
@@ -32,6 +35,7 @@ export default function WhereWhenSection({ info }) {
           <span className={styles.infoIcon}>
             <FaMapMarkerAlt />
           </span>
+
           <div>
             <strong>{info.party.placeName}</strong>
             <p>{info.party.address}</p>
