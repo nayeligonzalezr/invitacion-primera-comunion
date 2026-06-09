@@ -1,0 +1,765 @@
+@font-face {
+  font-family: "BasicTitle";
+  src: url("/fonts/basictitlefont.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Elegante";
+  src: url("/fonts/Elegante Classica.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Femme";
+  src: url("/fonts/FemmeElegante.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nalieta";
+  src: url("/fonts/Nalieta_dafont.otf") format("opentype");
+  font-display: swap;
+}
+
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(body) {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(183, 211, 232, 0.45), transparent 35%),
+    radial-gradient(circle at 85% 18%, rgba(190, 216, 194, 0.28), transparent 22%),
+    linear-gradient(180deg, #edf6fb 0%, #f9f7f0 45%, #eef8f1 100%);
+  color: #2d3a43;
+  overflow-x: hidden;
+}
+
+/* =========================
+   INTRO SCREEN
+========================= */
+
+.introScreen {
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(192, 216, 233, 0.8), transparent 32%),
+    radial-gradient(circle at 80% 20%, rgba(195, 220, 197, 0.45), transparent 25%),
+    linear-gradient(145deg, #edf8ff, #fffaf1, #e6f2eb);
+}
+
+.introGlow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 999px;
+  background: rgba(188, 216, 235, 0.55);
+  filter: blur(24px);
+}
+
+.introCard {
+  width: min(92vw, 430px);
+  padding: 44px 26px;
+  text-align: center;
+  border-radius: 34px;
+  position: relative;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(250, 246, 238, 0.92)),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a454' stroke-opacity='.22'%3E%3Cpath d='M60 16v88M16 60h88'/%3E%3Ccircle cx='60' cy='60' r='38'/%3E%3C/g%3E%3C/svg%3E");
+  border: 1px solid rgba(196, 169, 100, 0.45);
+  box-shadow: 0 24px 70px rgba(86, 120, 143, 0.28);
+}
+
+.crossIcon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #b9933f;
+  font-size: 34px;
+  background: #f9f4e8;
+  border: 1px solid rgba(185, 147, 63, 0.45);
+}
+
+.introSmall {
+  margin: 0;
+  font-family: "BasicTitle", serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #557884;
+}
+
+.introTitle {
+  margin: 14px 0 8px;
+  font-family: "Elegante", Georgia, serif;
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  font-weight: 700;
+  color: #2f6d69;
+  line-height: 1.05;
+}
+
+.introName {
+  margin: 0 0 28px;
+  font-family: "Nalieta", cursive;
+  font-size: clamp(3.1rem, 13vw, 5.2rem);
+  color: #bf9b4c;
+  line-height: 0.95;
+}
+
+.enterButton,
+.mapButton,
+.mapButtonDisabled {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.enterButton,
+.mapButton {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2f6d69, #7ea8bc);
+  box-shadow: 0 12px 26px rgba(71, 119, 139, 0.28);
+}
+
+/* =========================
+   GENERAL PAGE
+========================= */
+
+.page {
+  min-height: 100vh;
+  padding: 0;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(198, 224, 239, 0.65), transparent 28%),
+    radial-gradient(circle at 90% 20%, rgba(231, 213, 159, 0.45), transparent 28%),
+    radial-gradient(circle at 78% 12%, rgba(190, 218, 198, 0.24), transparent 20%),
+    linear-gradient(180deg, #edf7fb, #fffdf8 42%, #edf8f0);
+}
+
+.invitationShell {
+  width: min(100%, 470px);
+  margin: 0 auto;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2387aebb' stroke-opacity='.12' stroke-width='1'%3E%3Cpath d='M20 80c30-44 90-44 120 0M20 90c30 44 90 44 120 0'/%3E%3Cpath d='M80 20c-44 30-44 90 0 120M90 20c44 30 44 90 0 120'/%3E%3C/g%3E%3C/svg%3E");
+  box-shadow: 0 0 50px rgba(79, 122, 143, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.musicButton {
+  position: fixed;
+  top: 18px;
+  right: calc(50% - 215px);
+  z-index: 20;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(198, 169, 97, 0.4);
+  color: #315e70;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 24px rgba(91, 121, 135, 0.2);
+  cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.heroSection {
+  padding: 24px 14px 16px;
+  position: relative;
+}
+
+.heroOrnamentTop {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #c7a150;
+  font-size: 20px;
+  z-index: 2;
+}
+
+.heroCard {
+  min-height: auto;
+  padding: 34px 22px 30px;
+  border-radius: 30px 30px 52px 52px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(246, 251, 249, 0.96)),
+    radial-gradient(circle at 50% 24%, rgba(198, 224, 237, 0.42), transparent 34%);
+  border: 1px solid rgba(185, 158, 92, 0.45);
+  box-shadow:
+    inset 0 0 0 8px rgba(243, 247, 245, 0.9),
+    0 24px 50px rgba(77, 119, 138, 0.16);
+}
+
+.heroCard::before,
+.heroCard::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 145px;
+  top: 78px;
+  opacity: 0.18;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.heroCard::before {
+  left: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c8b17a' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M75 15C43 34 28 64 26 104'/%3E%3Cpath d='M60 42c-22 5-38 22-48 50'/%3E%3Cpath d='M50 76c-16 9-26 24-31 45'/%3E%3Cpath d='M28 104c17-2 32 2 45 12'/%3E%3Cpath d='M22 124c16-1 30 4 42 15'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.heroCard::after {
+  right: 10px;
+  transform: scaleX(-1);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23a6c2b0' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M75 15C43 34 28 64 26 104'/%3E%3Cpath d='M60 42c-22 5-38 22-48 50'/%3E%3Cpath d='M50 76c-16 9-26 24-31 45'/%3E%3Cpath d='M28 104c17-2 32 2 45 12'/%3E%3Cpath d='M22 124c16-1 30 4 42 15'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.doveRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.heroMiniIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #fffaf0;
+  border: 1px solid rgba(185, 147, 63, 0.35);
+  font-size: 20px;
+}
+
+.smallCross {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(185, 147, 63, 0.42);
+  background: #fffaf0;
+  font-size: 24px;
+}
+
+.iconCross {
+  color: #b9933f;
+}
+
+.iconCup {
+  color: #5c8d68;
+  background: #f4fbf4;
+  border-color: rgba(92, 141, 104, 0.25);
+}
+
+.iconGrapes {
+  color: #7e58c2;
+  background: #f7f1ff;
+  border-color: rgba(126, 88, 194, 0.22);
+}
+
+.heroLabel,
+.sectionOverline {
+  margin: 0;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  color: #567883;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.heroTitle {
+  margin: 10px 0 6px;
+  font-family: "Elegante", Georgia, serif;
+  font-size: clamp(2.2rem, 9vw, 3.2rem);
+  line-height: 1.04;
+  font-weight: 700;
+  color: #2f6d69;
+  position: relative;
+  z-index: 1;
+}
+
+.nameWrapper {
+  margin: 6px 0 10px;
+  padding: 4px 8px 2px;
+  position: relative;
+  width: 100%;
+}
+
+.nameWrapper::before {
+  display: none;
+}
+
+.heroName {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-family: "Nalieta", cursive;
+  font-size: clamp(3.5rem, 14vw, 5.4rem);
+  line-height: 0.96;
+  color: #bf9b4c;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.8);
+}
+
+.decorativeLine,
+.decorativeLineSmall {
+  display: flex;
+  width: min(210px, 70%);
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 8px auto 14px;
+  color: #b9933f;
+}
+
+.decorativeLine span,
+.decorativeLineSmall span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b9933f, transparent);
+}
+
+.heroDate {
+  margin: 4px 0 0;
+  font-family: "Femme", serif;
+  color: #5c6b72;
+  font-size: clamp(1.5rem, 5vw, 1.9rem);
+}
+
+.heroTime {
+  margin: 8px 0 0;
+  font-family: "BasicTitle", sans-serif;
+  color: #4f7f89;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.heroCountdownWrap {
+  width: 100%;
+  margin-top: 16px;
+  padding: 18px 8px 0;
+  border-top: 1px solid rgba(199, 161, 80, 0.2);
+}
+
+.countdownTitleHero {
+  margin: 0 0 14px;
+  font-family: "Elegante", Georgia, serif;
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  color: #b9933f;
+  line-height: 1;
+}
+
+.countdownGridHero {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  padding: 18px 20px;
+}
+
+.phraseCard,
+.familyCard,
+.whereCard {
+  border-radius: 26px;
+  padding: 30px 22px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(188, 159, 87, 0.34);
+  box-shadow: 0 18px 40px rgba(81, 119, 137, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   PHRASE
+========================= */
+
+.phraseCard {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(241, 249, 245, 0.92)),
+    url("data:image/svg+xml,%3Csvg width='90' height='90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c4a05a' fill-opacity='.14'%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3Ccircle cx='70' cy='35' r='2'/%3E%3Ccircle cx='40' cy='72' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.goldCircle {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 18px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 34px;
+  color: #b9933f;
+  border: 1px solid rgba(185, 147, 63, 0.48);
+  background: #fff8e9;
+}
+
+.goldCircleGrapes {
+  color: #7e58c2;
+  background: #f7f1ff;
+  border-color: rgba(126, 88, 194, 0.28);
+}
+
+.verse {
+  margin: 0;
+  font-family: "Elegante", Georgia, serif;
+  color: #2e6d66;
+  font-size: clamp(1.55rem, 6vw, 2.2rem);
+  line-height: 1.38;
+}
+
+.reference {
+  margin: 14px 0 0;
+  font-family: "BasicTitle", sans-serif;
+  color: #b9933f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.softDivider {
+  width: 80px;
+  height: 1px;
+  margin: 22px auto;
+  background: #d8bd79;
+}
+
+.phraseMessage {
+  margin: 0;
+  color: #556973;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   FAMILY
+========================= */
+
+.familyCard {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(252, 248, 238, 0.9));
+}
+
+.sectionIconRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sectionDecorIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #fff8ee;
+  border: 1px solid rgba(185, 147, 63, 0.3);
+  color: #d3a048;
+  font-size: 19px;
+}
+
+.namesGroup h2,
+.whereCard h2 {
+  margin: 10px 0 12px;
+  font-family: "Elegante", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2f6d69;
+}
+
+.namesGroup p {
+  margin: 8px 0;
+  font-family: "Femme", serif;
+  font-size: 1.5rem;
+  color: #4c6168;
+}
+
+.familyDivider {
+  margin: 24px auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #b9933f;
+  background: #fff7e6;
+  border: 1px solid rgba(185, 147, 63, 0.42);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.timeBox {
+  padding: 12px 6px 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(128, 174, 194, 0.24);
+  box-shadow: 0 8px 18px rgba(92, 126, 142, 0.1);
+}
+
+.timeBox strong {
+  display: block;
+  font-family: "BasicTitle", sans-serif;
+  font-size: clamp(1.25rem, 5vw, 1.7rem);
+  color: #2f6f81;
+  line-height: 1;
+}
+
+.timeBox span {
+  display: block;
+  margin-top: 7px;
+  font-family: "BasicTitle", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b9ca5;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* =========================
+   WHERE / WHEN
+========================= */
+
+.whereCard {
+  margin-bottom: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 250, 247, 0.92));
+}
+
+.partySubtitle {
+  margin: -4px 0 22px;
+  color: #6a7b82;
+  font-size: 1.02rem;
+}
+
+.infoBlock {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 20px;
+  background: rgba(237, 247, 251, 0.82);
+  border: 1px solid rgba(126, 174, 194, 0.24);
+}
+
+.infoIcon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff9ed;
+  border: 1px solid rgba(185, 147, 63, 0.3);
+  color: #d09c3d;
+  font-size: 18px;
+}
+
+.infoBlock strong {
+  color: #2f6d69;
+  font-family: "BasicTitle", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.infoBlock p {
+  margin: 5px 0 0;
+  color: #53666f;
+  font-size: 1rem;
+}
+
+.mapButton {
+  display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
+}
+
+.mapButtonDisabled {
+  margin-top: 14px;
+  color: #8b8f91;
+  background: #f3f3f3;
+  cursor: not-allowed;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 36px 24px 46px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  color: #60737c;
+  font-size: 1rem;
+}
+
+.footer span {
+  display: block;
+  margin-top: 10px;
+  font-family: "Nalieta", cursive;
+  font-size: clamp(3rem, 13vw, 4.8rem);
+  color: #bd9847;
+  line-height: 0.9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 520px) {
+  .musicButton {
+    right: 16px;
+    top: 16px;
+  }
+
+  .invitationShell {
+    width: 100%;
+  }
+
+  .heroSection {
+    padding: 22px 14px 16px;
+  }
+
+  .section {
+    padding-inline: 14px;
+  }
+
+  .heroCard {
+    padding: 30px 16px 28px;
+    border-radius: 28px 28px 44px 44px;
+  }
+
+  .heroCard::before,
+  .heroCard::after {
+    width: 86px;
+    height: 128px;
+    top: 78px;
+    opacity: 0.16;
+  }
+
+  .heroLabel,
+  .sectionOverline {
+    letter-spacing: 2.2px;
+    font-size: 1.1rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 10vw, 2.9rem);
+  }
+
+  .heroName {
+    font-size: clamp(3.2rem, 15vw, 4.8rem);
+  }
+
+  .heroDate {
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+
+  .heroCountdownWrap {
+    margin-top: 12px;
+    padding: 14px 4px 0;
+  }
+
+  .countdownGridHero {
+    gap: 7px;
+  }
+
+  .timeBox {
+    padding: 11px 4px 9px;
+  }
+
+  .timeBox strong {
+    font-size: clamp(1.15rem, 6vw, 1.5rem);
+  }
+
+  .timeBox span {
+    font-size: 1rem;
+    letter-spacing: 0.7px;
+  }
+
+  .phraseCard,
+  .familyCard,
+  .whereCard {
+    padding: 28px 18px;
+  }
+
+  .namesGroup p {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 360px) {
+  .countdownGridHero {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroCard {
+    border-radius: 26px 26px 38px 38px;
+    padding-bottom: 28px;
+  }
+
+  .heroName {
+    font-size: clamp(2.8rem, 16vw, 4.2rem);
+  }
+
+  .heroTitle {
+    font-size: clamp(1.85rem, 10vw, 2.6rem);
+  }
+
+  .heroDate {
+    font-size: 1.9rem;
+  }
+}
